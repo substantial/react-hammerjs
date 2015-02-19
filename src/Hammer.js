@@ -41,7 +41,7 @@ var HammerComponent = React.createClass({
 		if (this.props.onDoubleTap)	this.hammer.on('doubletap',	this.props.onDoubleTap);
 		if (this.props.onPan)	this.hammer.on('pan panmove panstart panend pancancel panleft panright panup pandown', this.props.onPan);
 		if (this.props.onSwipe) this.hammer.on('swipe swipeleft swiperight swipeup swipedown', this.props.onSwipe);
-		if (this.props.onPress) this.hammer.on('press, pressup', this.props.onPress);
+		if (this.props.onPress) this.hammer.on('press pressup', this.props.onPress);
 		if (this.props.onPinch)	this.hammer.on('pinch pinchstart pinchmove pinchend pinchcancel pinchin pinchout', this.props.onPinch);
 		if (this.props.onRotate) this.hammer.on('rotate rotatestart rotatemove rotateend rotatecancel', this.props.onRotate);
 	},

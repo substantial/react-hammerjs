@@ -29,11 +29,16 @@ The following events are supported:
 
 * `onTap`
 * `onDoubleTap`
-* `onPan` (types: `panmove`, `panstart`, `panend`, `pancancel`, `panleft`, `panright`, `panup`, `pandown`)
-* `onSwipe` (types: `swipe`, `swipeleft`, `swiperight`, `swipeup`, `swipedown`)
-* `onPress` (types: `press`, `pressup`)
-* `onPinch` (types: `pinch`, `pinchstart`, `pinchmove`, `pinchend`, `pinchcancel`, `pinchin`, `pinchout`,)
-* `onRotate` (types: `rotate`, `rotatestart`, `rotatemove`, `rotateend`, `rotatecancel`)
+* `onPan`
+  * includes types: `panmove`, `panstart`, `panend`, `pancancel`, `panleft`, `panright`, `panup`, `pandown`
+* `onSwipe`
+  * includes types: `swipe`, `swipeleft`, `swiperight`, `swipeup`, `swipedown`
+* `onPress`
+  * includes types: `press`, `pressup`
+* `onPinch`
+  * includes types: `pinch`, `pinchstart`, `pinchmove`, `pinchend`, `pinchcancel`, `pinchin`, `pinchout`
+* `onRotate`
+  * includes types: `rotate`, `rotatestart`, `rotatemove`, `rotateend`, `rotatecancel`
 
 For events with multiple sub-types, you can the specific type is available on the `type` property of the event object:
 
