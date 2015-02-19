@@ -29,11 +29,24 @@ The following events are supported:
 
 * `onTap`
 * `onDoubleTap`
-* `onPan`
-* `onSwipe`
-* `onPress`
-* `onPinch`
-* `onRotate`
+* `onPan` (types: `panmove`, `panstart`, `panend`, `pancancel`, `panleft`, `panright`, `panup`, `pandown`)
+* `onSwipe` (types: `swipe`, `swipeleft`, `swiperight`, `swipeup`, `swipedown`)
+* `onPress` (types: `press`, `pressup`)
+* `onPinch` (types: `pinch`, `pinchstart`, `pinchmove`, `pinchend`, `pinchcancel`, `pinchin`, `pinchout`,)
+* `onRotate` (types: `rotate`, `rotatestart`, `rotatemove`, `rotateend`, `rotatecancel`)
+
+For events with multiple sub-types, you can the specific type is available on the `type` property of the event object:
+
+```
+handlePan: function(event) {
+  if (event.type === 'panstart') {
+    // do something
+  } else if (event.type === 'panend') {
+    // do something else
+  }
+}
+```
+A full list of the properties of the Hammer event object is available [here](http://hammerjs.github.io/api/#event-object).
 
 You can also provide an `action` property which is like the `onTap` event handler but will also be fired `onPress`.
 
