@@ -36,6 +36,28 @@ var HammerComponent = React.createClass({
 
 	componentDidMount: function() {
 		this.hammer = new Hammer(this.getDOMNode());
+
+		if (this.props.options) {
+			Object.keys(this.props.options).forEach(function(option) {
+				if (option === 'recognizers') {
+					Object.keys(this.props.options.recognizers).forEach(function(gesture) {
+						var recognizer = this.hammer.get(gesture);
+						recognizer.set(this.props.options.recognizers[gesture]);
+					}, this);
+				} else {
+					var key = option;
+					var optionObj = {};
+					optionObj[key] = this.props.options[option];
+					this.hammer.set(optionObj);
+				}
+			}, this);
+		}
+
+		if (this.props.vertical) {
+			this.hammer.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+			this.hammer.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
+		}
+
 		if (this.props.action) this.hammer.on('tap press', this.props.action);
 		if (this.props.onTap) this.hammer.on('tap',	this.props.onTap);
 		if (this.props.onDoubleTap)	this.hammer.on('doubletap',	this.props.onDoubleTap);
@@ -47,8 +69,10 @@ var HammerComponent = React.createClass({
 	},
 
 	componentWillUnmount: function() {
-		this.hammer.stop();
-		this.hammer.destroy();
+		if (this.hammer) {
+		    this.hammer.stop();
+		    this.hammer.destroy();
+		}
 		this.hammer = null;
 	},
 
